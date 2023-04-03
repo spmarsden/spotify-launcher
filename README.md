@@ -4,11 +4,14 @@ A wrapper for spotify on linux that creates a system tray icon using kdocker and
 
 ## Installation
 
-Place spotify-launcher.desktop in /usr/share/applications/. Consider deleting the default spotify.desktop file.
+From within spotify-launcher run:
 
-Place spotify-launcher in /usr/local/bin/
+```bash
+./install.sh
+```
 
 ## Requirements
 
+- spotify
 - kdocker
 - dbus
