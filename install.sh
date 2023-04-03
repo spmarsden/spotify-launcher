@@ -20,13 +20,13 @@ sudo mv /usr/share/applications/spotify.desktop /usr/share/applications/spotify.
 HAS_ERROR=0
 
 # Link the new desktop file.
-if ! sudo ln -sf spotify-launcher.desktop /usr/share/applications/
+if ! sudo ln -sf $PWD/spotify-launcher.desktop /usr/share/applications/
 then
     HAS_ERROR=1
 fi
 
 # Link the new executable.
-if ! sudo ln -sf spotify-launcher /usr/bin/
+if ! sudo ln -sf $PWD/spotify-launcher /usr/bin/
 then
     HAS_ERROR=1
 fi
