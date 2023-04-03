@@ -26,7 +26,7 @@ then
 fi
 
 # Link the new executable.
-if ! sudo ln -sf spotify-launcher /usr/local/bin/
+if ! sudo ln -sf spotify-launcher /usr/bin/
 then
     HAS_ERROR=1
 fi
