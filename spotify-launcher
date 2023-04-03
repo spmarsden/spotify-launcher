@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+################################################################################
+#
+# Pass arguments to an existing Spotify instance. Spotify is launched if it's
+# not already running.
+#
+################################################################################
+
+pgrep spotify &> /dev/null
+WAS_ALREADY_RUNNING=$?
+
+# If Spotify is not running, start it.
+if [ $WAS_ALREADY_RUNNING -gt 0 ]
+then 
+    if ! kdocker spotify
+    then
+        exit 1
+    fi
+fi
+
+# If arguments were provided, pass those to Spotify.
+if [ ! -z $1 ]
+then
+
+    # If it's just started, wait a few seconds for it to load before instructing
+    # it where to go.
+    if [ $WAS_ALREADY_RUNNING -gt 0 ]
+    then
+        sleep 5
+    fi
+
+    # Pass along the instruction.
+    if ! dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.OpenUri string:"$1"
+    then
+        exit 2
+    fi
+fi

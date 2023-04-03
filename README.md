@@ -1,10 +1,12 @@
 # spotify-desktop
 
-A custom .desktop file for Spotify on linux. This uises kdocker to provide a system tray icon, and allows URIs to be sent to the current session rather than opening a new window.
+A wrapper for spotify on linux that creates a system tray icon using kdocker and allows URIs to be sent to the current session rather than opening a new window.
 
 ## Installation
 
-Place file in /usr/share/applications/ to overwrite the default .desktop file.
+Place spotify-launcher.desktop in /usr/share/applications/. Consider deleting the default spotify.desktop file.
+
+Place spotify-launcher in /usr/local/bin/
 
 ## Requirements
 
