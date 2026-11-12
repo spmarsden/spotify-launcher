@@ -13,7 +13,7 @@ WAS_ALREADY_RUNNING=$?
 # If Spotify is not running, start it.
 if [ $WAS_ALREADY_RUNNING -gt 0 ]
 then 
-    if ! kdocker spotify
+    if ! spotify --audio-api=pulseaudio
     then
         exit 1
     fi
